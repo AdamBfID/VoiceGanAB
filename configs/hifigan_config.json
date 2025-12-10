@@ -1,0 +1,24 @@
+{
+    "learning_rate": 0.0001,
+    "batch_size": 16,
+    "num_epochs": 100,
+    "sample_rate": 22050,
+    "n_fft": 1024,
+    "hop_length": 256,
+    "n_mels": 80,
+    "weight_decay": 1e-6,
+    "generator": {
+        "model_type": "HiFi-GAN",
+        "checkpoint_path": "./hifi-gan/generator_v1"
+    },
+    "data": {
+        "train": {
+            "speaker_A": "./data/speaker_A/train",
+            "speaker_B": "./data/speaker_B/train"
+        },
+        "validation": {
+            "speaker_A": "./data/validation/speaker_A",
+            "speaker_B": "./data/validation/speaker_B"
+        }
+    }
+}

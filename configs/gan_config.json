@@ -1,0 +1,38 @@
+{
+    "gan_config": {
+        "model": {
+            "type": "GAN",
+            "generator": {
+                "type": "HiFi-GAN",
+                "pretrained_weights": "hifi-gan/generator_v1"
+            },
+            "discriminator": {
+                "type": "PatchGAN",
+                "input_shape": [1, 80, 256]
+            }
+        },
+        "training": {
+            "epochs": 100,
+            "batch_size": 16,
+            "learning_rate": 0.0002,
+            "beta1": 0.5,
+            "beta2": 0.999,
+            "loss_function": "Wasserstein",
+            "gradient_penalty": true
+        },
+        "data": {
+            "input_dir_A": "data/speaker_A/train",
+            "input_dir_B": "data/speaker_B/train",
+            "validation_dir": "data/validation",
+            "sample_rate": 22050,
+            "num_mels": 80,
+            "n_fft": 1024,
+            "hop_length": 256
+        },
+        "logging": {
+            "log_interval": 10,
+            "checkpoint_interval": 5,
+            "output_dir": "outputs"
+        }
+    }
+}
